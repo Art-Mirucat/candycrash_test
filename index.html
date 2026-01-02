@@ -1,50 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>糖果消消乐-测试</title>
-    <style>
-        @font-face {
-            font-family: 'word_font';
-            src: url('fonts/word_font.ttf') format('truetype');
-        }
-        body {
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Use min-height to ensure it takes full viewport height */
-            margin: 0;
-            overflow: hidden; /* Prevent scrollbars */
-        }
-        .game-container {
-            position: relative;
-            /* width: 700px; Original canvas width */
-            /* height: 900px; Original canvas height */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* The actual scaling will be handled by JavaScript using transform */
-        }
-        canvas {
-            border: 2px solid #333;
-            background-color: #fff;
-            display: block; /* Remove extra space below canvas */
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* Ensure canvas content scales within its bounds */
-        }
-    </style>
+    <title>糖果消消乐</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="game-container">
-        <canvas id="gameCanvas"></canvas>
+        <!-- 顶部信息栏 -->
+        <div id="top-hud">
+            <div id="timer-container" class="hud-item">
+                时间：<span id="timer-text">60</span>
+            </div>
+            <div id="mascot-container">
+                <img id="mascot-img" src="images/mascot/happy.png" alt="Mascot">
+            </div>
+            <div id="score-container" class="hud-item">
+                分数：<span id="score-text">0</span>
+            </div>
+        </div>
+
+        <!-- 游戏画布 -->
+        <canvas id="game-canvas"></canvas>
+
+        <!-- 游戏结束弹窗 -->
+        <div id="game-over-modal" class="hidden">
+            <div class="modal-content">
+                <img src="images/ui/game_over.png" alt="Game Over" class="modal-bg">
+                <div class="modal-body">
+                    <h2>最终分数</h2>
+                    <p id="final-score">0</p>
+                    <button id="restart-btn">再玩一次</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- 脚本加载 -->
+    <script src="js/constants.js"></script>
+    <script src="js/resource.js"></script>
     <script src="js/candy.js"></script>
     <script src="js/board.js"></script>
-    <script src="js/ui.js"></script>
-    <script src="js/game_over.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/game.js"></script>
 </body>
 </html>

@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../fonts/word_font.ttf');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'CustomFont', sans-serif;
+    user-select: none;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../images/ui/background.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#top-hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+    height: 15%; /* 顶部区域占比 */
+    z-index: 10;
+}
+
+.hud-item {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 60px;
+    text-align: center;
+    font-family: 'CustomFont', sans-serif;
+}
+
+#mascot-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mascot-img {
+    max-height: 100%;
+    max-width: 100px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+#game-canvas {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    /* 尺寸由JS控制 */
+}
+
+/* 弹窗样式 */
+.hidden {
+    display: none !important;
+}
+
+#game-over-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    /* 如果有自定义弹窗背景图，可以用背景图 */
+}
+
+.modal-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: 20px;
+}
+
+.modal-body {
+    position: relative;
+    z-index: 1;
+}
+
+#restart-btn {
+    background-image: url('../images/ui/button_background.png');
+    background-size: 100% 100%; /* 确保图片完整显示 */
+    background-repeat: no-repeat; /* 防止图片重复 */
+    background-position: center; /* 确保背景图片居中 */
+    background-color: transparent; /* 背景图片会覆盖，所以设为透明 */
+    border: none;
+    padding: 20px 40px; /* 增加内边距，让按钮更大 */
+    font-size: 20px;
+    font-family: 'CustomFont', sans-serif;
+    cursor: pointer;
+    border-radius: 10px;
+    color: #fff;
+    text-shadow: 1px 1px 2px black;
+    transition: transform 0.1s;
+}
+
+#restart-btn:active {
+    transform: scale(0.95);
+}
