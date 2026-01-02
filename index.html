@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>糖果消消乐-小芸</title>
+    <style>
+        @font-face {
+            font-family: 'word_font';
+            src: url('fonts/word_font.ttf') format('truetype');
+        }
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Use min-height to ensure it takes full viewport height */
+            margin: 0;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+        .game-container {
+            position: relative;
+            /* width: 700px; Original canvas width */
+            /* height: 900px; Original canvas height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* The actual scaling will be handled by JavaScript using transform */
+        }
+        canvas {
+            border: 2px solid #333;
+            background-color: #fff;
+            display: block; /* Remove extra space below canvas */
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Ensure canvas content scales within its bounds */
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    <script src="js/candy.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game_over.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
